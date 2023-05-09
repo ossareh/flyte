@@ -44,7 +44,16 @@ data:
       secretName: {{ include "flyte-binary.webhook.secretName" . }}
       serviceName: {{ include "flyte-binary.webhook.serviceName" . }}
       servicePort: 443
-    flyte: {{ tpl ( index .Values.configuration "flyte-binary" | toYaml ) . | nindent 6 }}
+    flyte:
+      {{- if .Values.configuration.admin }}
+      admin: {{ tpl ( .Values.configuration.admin | toYaml ) . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.configuration.dataCatalog }}
+      dataCatalog: {{ tpl ( .Values.configuration.dataCatalog | toYaml ) . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.configuration.propeller }}
+      propeller: {{ tpl ( .Values.configuration.propeller | toYaml ) . | nindent 8 }}
+      {{- end }}
   001-plugins.yaml: |
     tasks:
       task-plugins:

@@ -15,6 +15,10 @@ Chart for basic single Flyte executable deployment
 | clusterResourceTemplates.labels | object | `{}` |  |
 | commonAnnotations | object | `{}` |  |
 | commonLabels | object | `{}` |  |
+| configuration.admin.disableClusterResourceManager | bool | `false` |  |
+| configuration.admin.disableScheduler | bool | `false` |  |
+| configuration.admin.disabled | bool | `false` |  |
+| configuration.admin.seedProjects[0] | string | `"flytesnacks"` |  |
 | configuration.annotations | object | `{}` |  |
 | configuration.auth.authorizedUris | list | `[]` |  |
 | configuration.auth.enableAuthServer | bool | `true` |  |
@@ -31,6 +35,7 @@ Chart for basic single Flyte executable deployment
 | configuration.auth.oidc.clientSecret | string | `""` |  |
 | configuration.co-pilot.image.repository | string | `"cr.flyte.org/flyteorg/flytecopilot"` |  |
 | configuration.co-pilot.image.tag | string | `"v0.0.28"` |  |
+| configuration.dataCatalog.disabled | bool | `false` |  |
 | configuration.database.dbname | string | `"flyte"` |  |
 | configuration.database.host | string | `"127.0.0.1"` |  |
 | configuration.database.options | string | `"sslmode=disable"` |  |
@@ -39,13 +44,6 @@ Chart for basic single Flyte executable deployment
 | configuration.database.port | int | `5432` |  |
 | configuration.database.username | string | `"postgres"` |  |
 | configuration.externalConfigMap | string | `""` |  |
-| configuration.flyte-binary.admin.disableClusterResourceManager | bool | `false` |  |
-| configuration.flyte-binary.admin.disableScheduler | bool | `false` |  |
-| configuration.flyte-binary.admin.disabled | bool | `false` |  |
-| configuration.flyte-binary.admin.seedProjects[0] | string | `"flytesnacks"` |  |
-| configuration.flyte-binary.dataCatalog.disabled | bool | `false` |  |
-| configuration.flyte-binary.propeller.disableWebhook | bool | `false` |  |
-| configuration.flyte-binary.propeller.disabled | bool | `false` |  |
 | configuration.inline | object | `{}` |  |
 | configuration.inlineConfigMap | string | `""` |  |
 | configuration.labels | object | `{}` |  |
@@ -57,6 +55,8 @@ Chart for basic single Flyte executable deployment
 | configuration.logging.plugins.kubernetes.templateUri | string | `""` |  |
 | configuration.logging.plugins.stackdriver.enabled | bool | `false` |  |
 | configuration.logging.plugins.stackdriver.templateUri | string | `""` |  |
+| configuration.propeller.disableWebhook | bool | `false` |  |
+| configuration.propeller.disabled | bool | `false` |  |
 | configuration.storage.metadataContainer | string | `"my-organization-flyte-container"` |  |
 | configuration.storage.provider | string | `"s3"` |  |
 | configuration.storage.providerConfig.gcs.project | string | `"my-organization-gcp-project"` |  |
